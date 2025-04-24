@@ -1,0 +1,28 @@
+package by.cherkas.diplom.embassy;
+
+import by.cherkas.diplom.address.Address;
+import by.cherkas.diplom.embassy.countries.Countries;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
+import java.util.UUID;
+
+@Entity
+@Table(name = "Embassies")
+@Getter
+@Setter
+@RequiredArgsConstructor
+public class Embassy {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
+
+    @Enumerated
+    private Countries country;
+
+    @OneToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
+}
