@@ -31,10 +31,13 @@ public class Customer {
     @JoinColumn(name = "address_id")
     private Address address;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(optional = false)
     @MapsId
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "user_id")
     private User user;
 
 
+    public Customer(User user) {
+        this.user = user;
+    }
 }

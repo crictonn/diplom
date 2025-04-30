@@ -32,7 +32,7 @@ public class Company {
     private List<User> employees;
 
     @OneToMany
-    @JoinColumn(name = "requisition_id")
+    @JoinColumn(name = "company_id")
     private List<Requisition> requisitions;
 
     @ManyToMany
