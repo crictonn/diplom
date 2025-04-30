@@ -8,6 +8,8 @@ public enum ErrorMessages {
     INVALID_EMAIL("Invalid email"),
     PASSWORD_REQUIRED("Password is required"),
     INVALID_PASSWORD("Invalid password"),
+    DUPLICATE_USERNAME("Username is already taken"),
+    DUPLICATE_EMAIL("Email is already in use"),
     CUSTOMER_NOT_FOUND("Customer not found"),
     NEGATIVE_AGE("Age cannot be negative");
 
