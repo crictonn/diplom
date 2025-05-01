@@ -2,29 +2,34 @@ package by.cherkas.diplom.customer.services;
 
 import by.cherkas.diplom.customer.Customer;
 import by.cherkas.diplom.customer.CustomerRepository;
+import by.cherkas.diplom.exceptions.types.UserNotFoundException;
+import by.cherkas.diplom.user.User;
+import by.cherkas.diplom.user.UserRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
 public class SaveCustomerService {
-    private final CustomerRepository repository;
+    private final CustomerRepository customerRepository;
+    private final UserRepository userRepository;
 
-    public SaveCustomerService(CustomerRepository repository) {
-        this.repository = repository;
+    public SaveCustomerService(
+            CustomerRepository customerRepository,
+            UserRepository userRepository) {
+        this.customerRepository = customerRepository;
+        this.userRepository = userRepository;
     }
 
-//    public ResponseEntity<Customer> saveCustomer(Customer customer){
-//        return ResponseEntity.ok(repository.save(new Customer(customer.getId())));
-//    }
+    public ResponseEntity<Customer> createCustomer(UUID userId){
 
-    public void saveCustomerNoReturn(Customer customer){
-        return;
+        Optional<User> user = userRepository.findById(userId);
+
+        if(user.isEmpty())
+            throw new UserNotFoundException();
+
+        return ResponseEntity.ok(customerRepository.save(new Customer(user.get())));
     }
-
-//    public ResponseEntity<Customer> saveCustomer(UUID id){
-//        Customer customer = new Customer(id);
-//        return ResponseEntity.ok(repository.save(customer));
-//    }
 }

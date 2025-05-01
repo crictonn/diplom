@@ -26,4 +26,14 @@ public class GetOneUserService {
 
         throw new UserNotFoundException();
     }
+
+    public ResponseEntity<User> getUserByUsername(String username){
+
+        Optional<User> user = userRepository.getUserByUsername(username);
+
+        if(user.isPresent())
+            return ResponseEntity.ok(user.get());
+
+        throw new UserNotFoundException();
+    }
 }

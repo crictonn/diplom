@@ -5,6 +5,8 @@ import by.cherkas.diplom.passport.Passport;
 import by.cherkas.diplom.requisiton.Requisition;
 import by.cherkas.diplom.user.role.Roles;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -22,12 +24,15 @@ public class User {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    @NotNull
     @Column(unique = true, nullable = false)
     private String username;
 
     @Column(nullable = false)
     private String password;
 
+    @Email
+    @NotNull
     @Column(unique = true, nullable = false)
     private String email;
 
