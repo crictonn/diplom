@@ -1,4 +1,4 @@
-package by.cherkas.diplom.exceptions.types;
+package by.cherkas.diplom.exceptions.types.user;
 
 import by.cherkas.diplom.exceptions.ErrorMessages;
 import org.slf4j.Logger;

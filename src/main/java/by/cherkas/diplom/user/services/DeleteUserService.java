@@ -2,8 +2,8 @@ package by.cherkas.diplom.user.services;
 
 import by.cherkas.diplom.customer.Customer;
 import by.cherkas.diplom.customer.CustomerRepository;
-import by.cherkas.diplom.exceptions.types.CustomerNotFoundException;
-import by.cherkas.diplom.exceptions.types.UserNotFoundException;
+import by.cherkas.diplom.exceptions.types.customer.CustomerNotFoundException;
+import by.cherkas.diplom.exceptions.types.user.UserNotFoundException;
 import by.cherkas.diplom.user.User;
 import by.cherkas.diplom.user.UserRepository;
 import jakarta.transaction.Transactional;

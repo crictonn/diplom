@@ -1,8 +1,7 @@
 package by.cherkas.diplom.company;
 
-import by.cherkas.diplom.address.Address;
-import by.cherkas.diplom.requisiton.Requisition;
-import by.cherkas.diplom.user.User;
+import by.cherkas.diplom.department.Department;
+import by.cherkas.diplom.embassy.Embassy;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -23,18 +22,14 @@ public class Company {
 
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "address_id")
-    private Address address;
-
-    @OneToMany
-    @JoinColumn(name = "employee_id")
-    private List<User> employees;
-
-    @OneToMany
-    @JoinColumn(name = "company_id")
-    private List<Requisition> requisitions;
+    @OneToMany(mappedBy = "company")
+    private List<Department> departments;
 
     @ManyToMany
-    private List<User> customers;
+    @JoinTable(
+            name = "visa_support",
+            joinColumns = @JoinColumn(name = "company_id"),
+            inverseJoinColumns = @JoinColumn(name = "embassy_id")
+    )
+    private List<Embassy> embassies;
 }

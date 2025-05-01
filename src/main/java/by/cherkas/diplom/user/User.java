@@ -1,6 +1,6 @@
 package by.cherkas.diplom.user;
 
-import by.cherkas.diplom.company.Company;
+import by.cherkas.diplom.department.Department;
 import by.cherkas.diplom.passport.Passport;
 import by.cherkas.diplom.requisiton.Requisition;
 import by.cherkas.diplom.user.role.Roles;
@@ -47,6 +47,6 @@ public class User {
     private Passport passport;
 
     @ManyToMany(mappedBy = "customers")
-    private List<Company> companies;
+    private List<Department> departments;
 
 }

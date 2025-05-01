@@ -1,6 +1,6 @@
 package by.cherkas.diplom.address;
 
-import by.cherkas.diplom.company.Company;
+import by.cherkas.diplom.department.Department;
 import by.cherkas.diplom.customer.Customer;
 import by.cherkas.diplom.embassy.Embassy;
 import by.cherkas.diplom.passport.Passport;
@@ -22,9 +22,13 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    private String fullAddress;
+    private String city;
     private String streetName;
-    private int houseNumber;
+    private String houseNumber;
     private String postIndex;
+
+    //TODO add coordinates for map integration
 
     @OneToMany(mappedBy = "address")
     private List<Customer> customers;
@@ -33,7 +37,7 @@ public class Address {
     private List<Passport> passports;
 
     @OneToMany(mappedBy = "address")
-    private List<Company> companies;
+    private List<Department> departments;
 
     @OneToOne(mappedBy = "address")
     private Embassy embassy;

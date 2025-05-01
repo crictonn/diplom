@@ -1,7 +1,7 @@
 package by.cherkas.diplom.validators;
 
 import by.cherkas.diplom.exceptions.ErrorMessages;
-import by.cherkas.diplom.exceptions.types.UserNotValidException;
+import by.cherkas.diplom.exceptions.types.user.UserNotValidException;
 import by.cherkas.diplom.user.User;
 import io.micrometer.common.util.StringUtils;
 import lombok.NoArgsConstructor;

@@ -2,7 +2,7 @@ package by.cherkas.diplom.customer.services;
 
 import by.cherkas.diplom.customer.Customer;
 import by.cherkas.diplom.customer.CustomerRepository;
-import by.cherkas.diplom.exceptions.types.UserNotValidException;
+import by.cherkas.diplom.exceptions.types.user.UserNotValidException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 

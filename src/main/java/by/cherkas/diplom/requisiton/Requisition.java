@@ -1,6 +1,6 @@
 package by.cherkas.diplom.requisiton;
 
-import by.cherkas.diplom.company.Company;
+import by.cherkas.diplom.department.Department;
 import by.cherkas.diplom.requisiton.status.Statuses;
 import by.cherkas.diplom.user.User;
 import jakarta.persistence.*;
@@ -9,7 +9,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -32,5 +31,5 @@ public class Requisition {
     private User customer;
 
     @ManyToOne
-    private Company company;
+    private Department department;
 }

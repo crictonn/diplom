@@ -1,8 +1,8 @@
 package by.cherkas.diplom.exceptions;
 
-import by.cherkas.diplom.exceptions.types.CustomerNotFoundException;
-import by.cherkas.diplom.exceptions.types.UserNotFoundException;
-import by.cherkas.diplom.exceptions.types.UserNotValidException;
+import by.cherkas.diplom.exceptions.types.customer.CustomerNotFoundException;
+import by.cherkas.diplom.exceptions.types.user.UserNotFoundException;
+import by.cherkas.diplom.exceptions.types.user.UserNotValidException;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
