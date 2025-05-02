@@ -3,6 +3,7 @@ package by.cherkas.diplom.embassy;
 import by.cherkas.diplom.address.Address;
 import by.cherkas.diplom.company.Company;
 import by.cherkas.diplom.embassy.countries.Countries;
+import by.cherkas.diplom.requisiton.Requisition;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -30,4 +31,7 @@ public class Embassy {
 
     @ManyToMany(mappedBy = "embassies")
     private List<Company> companies;
+
+    @OneToMany(mappedBy = "embassy")
+    private List<Requisition> requisitions;
 }

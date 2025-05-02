@@ -22,6 +22,7 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    private String establishmentName;
     private String fullAddress;
     private String city;
     private String streetName;
@@ -33,7 +34,7 @@ public class Address {
     @OneToMany(mappedBy = "address")
     private List<Customer> customers;
 
-    @OneToMany(mappedBy = "issued_address")
+    @OneToMany(mappedBy = "issuedAddress")
     private List<Passport> passports;
 
     @OneToMany(mappedBy = "address")

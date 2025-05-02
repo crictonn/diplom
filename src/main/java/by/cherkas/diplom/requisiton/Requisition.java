@@ -1,6 +1,8 @@
 package by.cherkas.diplom.requisiton;
 
 import by.cherkas.diplom.department.Department;
+import by.cherkas.diplom.embassy.Embassy;
+import by.cherkas.diplom.embassy.countries.Countries;
 import by.cherkas.diplom.requisiton.status.Statuses;
 import by.cherkas.diplom.user.User;
 import jakarta.persistence.*;
@@ -29,6 +31,9 @@ public class Requisition {
 
     @ManyToOne
     private User customer;
+
+    @ManyToOne
+    private Embassy embassy;
 
     @ManyToOne
     private Department department;
