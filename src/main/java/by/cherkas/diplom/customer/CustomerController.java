@@ -1,6 +1,5 @@
-package by.cherkas.diplom.customer.controllers;
+package by.cherkas.diplom.customer;
 
-import by.cherkas.diplom.customer.Customer;
 import by.cherkas.diplom.customer.services.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

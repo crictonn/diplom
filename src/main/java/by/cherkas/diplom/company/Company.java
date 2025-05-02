@@ -2,6 +2,7 @@ package by.cherkas.diplom.company;
 
 import by.cherkas.diplom.department.Department;
 import by.cherkas.diplom.embassy.Embassy;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -20,9 +21,11 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    @Column(unique = true)
     private String name;
 
     @OneToMany(mappedBy = "company")
+    @JsonManagedReference
     private List<Department> departments;
 
     @ManyToMany

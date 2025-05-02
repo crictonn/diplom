@@ -41,14 +41,10 @@ public class DepartmentController {
         return getOneDepartmentService.getDepartmentById(id);
     }
 
-    @GetMapping("/get/all")
-    public ResponseEntity<List<Department>> getAllDepartments(){
-        return getAllDepartmentsService.getAllDepartments();
-    }
 
     @GetMapping("/get/all")
-    public ResponseEntity<List<Department>> getAllWhereCompanyId(@RequestParam UUID companyId){
-        return getAllDepartmentsService.getAllWhereCompanyId(companyId);
+    public ResponseEntity<List<Department>> getAllWhereCompanyId(@RequestParam(required = false, value = "company") UUID companyId){
+        return getAllDepartmentsService.getAllDepartments(companyId);
     }
 
     @PutMapping("/update/{id}")

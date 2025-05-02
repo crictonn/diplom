@@ -4,6 +4,9 @@ import by.cherkas.diplom.address.Address;
 import by.cherkas.diplom.company.Company;
 import by.cherkas.diplom.requisiton.Requisition;
 import by.cherkas.diplom.user.User;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +20,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @RequiredArgsConstructor
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -24,6 +28,7 @@ public class Department {
 
     @ManyToOne
     @JoinColumn(name = "company_id")
+    @JsonBackReference
     private Company company;
 
     @ManyToOne

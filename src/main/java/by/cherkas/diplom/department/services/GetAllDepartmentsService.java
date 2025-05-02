@@ -17,11 +17,10 @@ public class GetAllDepartmentsService {
         this.departmentRepository = departmentRepository;
     }
 
-    public ResponseEntity<List<Department>> getAllDepartments(){
-        return ResponseEntity.ok(departmentRepository.findAll());
-    }
-
-    public ResponseEntity<List<Department>> getAllWhereCompanyId(UUID id){
-        return ResponseEntity.ok(departmentRepository.getAllByCompanyId(id));
+    public ResponseEntity<List<Department>> getAllDepartments(UUID id){
+        if(id == null)
+            return ResponseEntity.ok(departmentRepository.findAll());
+        else
+            return ResponseEntity.ok(departmentRepository.getAllByCompanyId(id));
     }
 }

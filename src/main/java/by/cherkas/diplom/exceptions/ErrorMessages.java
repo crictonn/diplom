@@ -15,7 +15,9 @@ public enum ErrorMessages {
     DUPLICATE_EMAIL("Email is already in use"),
     CUSTOMER_NOT_FOUND("Customer not found"),
     NEGATIVE_AGE("Age cannot be negative"),
-    DEPARTMENT_NOT_FOUND("Department not found");
+    DEPARTMENT_NOT_FOUND("Department not found"),
+    COMPANY_NOT_FOUND("Company not found"),
+    EMBASSY_NOT_FOUND("Embassy not found");
 
 
 
