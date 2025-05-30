@@ -1,11 +1,12 @@
 package by.cherkas.diplom.department;
 
 import by.cherkas.diplom.address.Address;
+import by.cherkas.diplom.application.Application;
 import by.cherkas.diplom.company.Company;
-import by.cherkas.diplom.requisiton.Requisition;
 import by.cherkas.diplom.user.User;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -26,6 +27,8 @@ public class Department {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    private String name;
+
     @ManyToOne
     @JoinColumn(name = "company_id")
     @JsonBackReference
@@ -39,9 +42,10 @@ public class Department {
     @JoinColumn(name = "employee_id")
     private List<User> employees;
 
+    @JsonIgnore
     @OneToMany
     @JoinColumn(name = "department_id")
-    private List<Requisition> requisitions;
+    private List<Application> applications;
 
     @ManyToMany
     private List<User> customers;

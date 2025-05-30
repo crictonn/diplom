@@ -41,6 +41,6 @@ public class SaveUserService {
         Customer customer = new Customer(user);
         customerRepository.save(customer);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(new UserCustomerDTO(user, customer));
+        return ResponseEntity.status(HttpStatus.CREATED).body(new UserCustomerDTO(user));
     }
 }

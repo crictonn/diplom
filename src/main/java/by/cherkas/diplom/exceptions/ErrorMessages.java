@@ -27,11 +27,11 @@ public enum ErrorMessages {
     DOB_REQUIRED("Date of birth is required"),
     EXP_DATE_REQUIRED("Expiration date is required"),
     ISSUED_ADDRESS_REQUIRED("Issued address is required"),
-    REQUISITION_NOT_FOUND("Requisition not found"),
+    REQUISITION_NOT_FOUND("Application not found"),
     STATUS_REQUIRED("Status is required"),
-    USER_REQUIRED("Requisition must have a customer"),
-    EMBASSY_REQUIRED("Requisition must be directed to an embassy"),
-    DEPARTMENT_REQUIRED("Requisition must be assigned to a department")
+    USER_REQUIRED("Application must have a customer"),
+    EMBASSY_REQUIRED("Application must be directed to an embassy"),
+    DEPARTMENT_REQUIRED("Application must be assigned to a department")
     ;
 
 

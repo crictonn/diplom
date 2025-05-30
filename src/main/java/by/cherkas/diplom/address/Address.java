@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -28,6 +29,8 @@ public class Address {
     private String streetName;
     private String houseNumber;
     private String postIndex;
+    private Double xCoordinate;
+    private Double yCoordinate;
 
     //TODO add coordinates for map integration
 

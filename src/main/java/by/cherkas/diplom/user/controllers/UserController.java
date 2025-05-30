@@ -1,14 +1,23 @@
 package by.cherkas.diplom.user.controllers;
 
 import by.cherkas.diplom.customer.UserCustomerDTO;
+import by.cherkas.diplom.security.jwt.JwtUtils;
+import by.cherkas.diplom.user.LoginRequest;
 import by.cherkas.diplom.user.User;
+import by.cherkas.diplom.user.UserRepository;
 import by.cherkas.diplom.user.services.*;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
+@CrossOrigin("http://localhost:3000")
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -18,24 +27,32 @@ public class UserController {
     private final GetAllUsersService getAllUsersService;
     private final UpdateUserService updateUserService;
     private final DeleteUserService deleteUserService;
+    private final LoginUserService loginUserService;
 
     public UserController(
             SaveUserService saveUserService,
             GetOneUserService getOneUserService,
             GetAllUsersService getAllUsersService,
             UpdateUserService updateUserService,
-            DeleteUserService deleteUserService) {
+            DeleteUserService deleteUserService,
+            LoginUserService loginUserService) {
 
         this.saveUserService = saveUserService;
         this.getOneUserService = getOneUserService;
         this.getAllUsersService = getAllUsersService;
         this.updateUserService = updateUserService;
         this.deleteUserService = deleteUserService;
+        this.loginUserService = loginUserService;
     }
 
     @PostMapping("/add")
     public ResponseEntity<UserCustomerDTO> saveUser(@RequestBody User user){
         return saveUserService.saveUser(user);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<UserCustomerDTO> loginUser(@RequestBody LoginRequest request){
+        return loginUserService.loginUser(request);
     }
 
     @GetMapping("/get/{id}")
@@ -44,8 +61,8 @@ public class UserController {
     }
 
     @GetMapping("/get")
-    public ResponseEntity<User> getUserByUsername(@RequestParam String username){
-        return getOneUserService.getUserByUsername(username);
+    public ResponseEntity<User> getUserByUsernameOrEmail(@RequestParam String input){
+        return getOneUserService.getUserByUsernameOrEmail(input);
     }
 
     @GetMapping("/get/all")

@@ -1,25 +1,21 @@
 package by.cherkas.diplom.customer;
 
+import by.cherkas.diplom.security.jwt.JwtUtils;
 import by.cherkas.diplom.user.User;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-import java.util.UUID;
 
 @Getter
 @Setter
 @RequiredArgsConstructor
 public class UserCustomerDTO {
-    private UUID id;
-    private String username;
-    private String firstName;
-    private String lastName;
+    private User user;
+    private String token;
 
-    public UserCustomerDTO(User user, Customer customer) {
-        this.id = user.getId();
-        this.username = user.getUsername();
-        this.firstName = customer.getFirstName();
-        this.lastName = customer.getLastName();
+    public UserCustomerDTO(User user) {
+        this.user = user;
+        this.token = JwtUtils.generateToken(user);
     }
 }

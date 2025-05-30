@@ -27,9 +27,14 @@ public class GetOneUserService {
         throw new UserNotFoundException();
     }
 
-    public ResponseEntity<User> getUserByUsername(String username){
+    public ResponseEntity<User> getUserByUsernameOrEmail(String input){
 
-        Optional<User> user = userRepository.getUserByUsername(username);
+        Optional<User> user;
+
+        if(input.contains("@"))
+            user = userRepository.getUserByEmail(input);
+        else
+            user = userRepository.getUserByUsername(input);
 
         if(user.isPresent())
             return ResponseEntity.ok(user.get());

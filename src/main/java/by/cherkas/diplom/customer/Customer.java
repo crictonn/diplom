@@ -2,6 +2,7 @@ package by.cherkas.diplom.customer;
 
 import by.cherkas.diplom.address.Address;
 import by.cherkas.diplom.user.User;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -34,6 +35,7 @@ public class Customer {
     @OneToOne(optional = false)
     @MapsId
     @JoinColumn(name = "user_id")
+    @JsonBackReference
     private User user;
 
 
